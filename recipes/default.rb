@@ -22,7 +22,7 @@ windows_batch "make dir" do
   mkdir c:\\temp
   cd c:\\temp
   EOH
-  not_if {::File.exists?(node[:off][:winword]}
+  not_if {::File.exists?(node[:off][:winword])}
   not_if {reboot_pending?}
 end
 

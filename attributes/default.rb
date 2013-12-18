@@ -16,5 +16,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-default[:off][:url] = "http://pigramsoftware.no-ip.biz/repo/off_13_x64.zip"
+default[:off][:url] = "https://dl.dropboxusercontent.com/u/36379525/off_13_x64.zip"
 default[:off][:winword] = "C:/Program Files/Microsoft Office/Office15/WINWORD.exe"
