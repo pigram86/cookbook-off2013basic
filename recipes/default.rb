@@ -22,15 +22,15 @@ windows_batch "make dir" do
   mkdir c:\\temp
   cd c:\\temp
   EOH
-  not_if {::File.exists?(node[:off][:winword])}
+  not_if {::File.exists?(node['off']['winword'])}
   not_if {reboot_pending?}
 end
 
 # unzip office to c:\temp
 windows_zipfile "c:/temp" do
-  source node[:off][:url]
+  source node['off']['url']
   action :unzip
-  not_if {::File.exists?(node[:off][:winword])}
+  not_if {::File.exists?(node['off']['winword'])}
   not_if {reboot_pending?}
 end
 
@@ -40,7 +40,7 @@ windows_batch "install" do
   cd c:\\temp
   c:\\temp\\setup.exe
   EOH
-  not_if {::File.exists?(node[:off][:winword])}
+  not_if {::File.exists?(node['off']['winword'])}
   not_if {reboot_pending?}
 end
 
@@ -48,7 +48,7 @@ windows_batch "remove c:\\temp" do
   code <<-EOH
   rmdir /s /q c:\\temp
   EOH
-  not_if {::File.exists?(node[:off][:winword])}
+  only_if {::File.exists?(node['off']['winword'])}
   not_if {reboot_pending?}
 end
 
